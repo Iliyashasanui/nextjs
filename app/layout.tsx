@@ -1,22 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Pacifico } from "next/font/google";
+import { Inter, Roboto_Mono, Pacifico } from "next/font/google";
 import "./globals.css";
 
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const mono = Roboto_Mono({ subsets: ["latin"], variable: "--font-mono" });
 const pacifico = Pacifico({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-pacifico',
-})
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+  weight: "400",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-pacifico",
 });
 
 export const metadata: Metadata = {
@@ -31,9 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased`}
-      >
+      <body className={`${inter.variable} ${mono.variable} ${pacifico.variable} text-white bg-black`}>
         {children}
       </body>
     </html>
